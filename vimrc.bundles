@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
+    let g:bundle_groups=['php', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -140,7 +140,7 @@ Plug 'altercation/vim-colors-solarized'
 " molokai
 " 主题 molokai
 Plug 'tomasr/molokai'
-
+Plug 'chriskempson/vim-tomorrow-theme'
 
 " nav
 " nerdtree nerdtreetabs
@@ -202,6 +202,8 @@ if count(g:bundle_groups, 'php')
     " piv
     " shift-v可以查看函数手册 / leader-pd生成注释
     Plug 'spf13/PIV'
+    Plug 'stephpy/vim-php-cs-fixer'
+
 endif
 
 if count(g:bundle_groups, 'ruby')
