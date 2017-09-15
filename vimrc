@@ -565,6 +565,10 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" NERDTree binding
+nmap ,n :NERDTreeFind<CR>
+nmap ,m :NERDTreeToggle<CR>
+
 "==========================================
 " FileType Settings  文件类型设置
 "==========================================
@@ -654,12 +658,12 @@ endif
 
 
 " theme主题
-set background=dark
+set background=light
 set t_Co=256
 
 "colorscheme solarized
 "colorscheme molokai
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow-Night
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致

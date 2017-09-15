@@ -71,6 +71,9 @@ Plug 'junegunn/vim-easy-align'
 "更高效的移动 [,, + w/fx/h/j/k/l]
 Plug 'Lokaltog/vim-easymotion'
 
+" Plug 'xolox/vim-easytags'
+
+
 " 更高效的行内移动, f/F/t/T, 才触发
 " quickscope
 Plug 'unblevable/quick-scope'
@@ -148,6 +151,9 @@ Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
 Plug 'majutsushi/tagbar'
+
+Plug 'junegunn/vim-easy-align'
+Plug 'mileszs/ack.vim'
 
 " text object
 " 支持自定义文本对象
@@ -583,7 +589,6 @@ endif
 " }}}
 
 " ################### 功能相关 ###################
-
 " ctrlp ctrlpfunky{{{
     let g:ctrlp_map = '<leader>p'
     let g:ctrlp_cmd = 'CtrlP'
@@ -780,39 +785,6 @@ endif
             \ 'F:singleton methods'
         \ ]
     \ }
-
-    " go语言的tagbar配置
-    " 1. install gotags 'go get -u github.com/jstemmer/gotags'
-    " 2. make sure `gotags` in you shell PATH, you can call check it with `which gotags`
-    " for gotags. work with tagbar
-    let g:tagbar_type_go = {
-        \ 'ctagstype' : 'go',
-        \ 'kinds'     : [
-            \ 'p:package',
-            \ 'i:imports:1',
-            \ 'c:constants',
-            \ 'v:variables',
-            \ 't:types',
-            \ 'n:interfaces',
-            \ 'w:fields',
-            \ 'e:embedded',
-            \ 'm:methods',
-            \ 'r:constructor',
-            \ 'f:functions'
-        \ ],
-        \ 'sro' : '.',
-        \ 'kind2scope' : {
-            \ 't' : 'ctype',
-            \ 'n' : 'ntype'
-        \ },
-        \ 'scope2kind' : {
-            \ 'ctype' : 't',
-            \ 'ntype' : 'n'
-        \ },
-        \ 'ctagsbin'  : 'gotags',
-        \ 'ctagsargs' : '-sort -silent'
-    \ }
-" }}}
 
 
 " ################### 语言相关 ###################
