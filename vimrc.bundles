@@ -155,6 +155,8 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 
+Plug 'elixir-editors/vim-elixir'
+
 " text object
 " 支持自定义文本对象
 Plug 'kana/vim-textobj-user'
