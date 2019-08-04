@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['javascript', 'markdown', 'tmux', 'beta', 'php']
+    let g:bundle_groups=['javascript', 'markdown', 'tmux', 'beta', 'php', 'ruby']
 endif
 
 " ----------------------------------------------------------------------------
@@ -45,7 +45,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 代码自动补全
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -129,6 +129,8 @@ Plug 'airblade/vim-gitgutter'
 " edit history, 可以查看回到某个历史状态
 Plug 'sjl/gundo.vim'
 
+Plug '/usr/local/opt/fzf'
+
 " view
 " airline
 " 状态栏增强展示
@@ -137,13 +139,9 @@ Plug 'vim-airline/vim-airline-themes'
 " rainbow_parentheses
 " 括号显示增强
 Plug 'kien/rainbow_parentheses.vim'
-" 主题 solarized
-" solarized
-Plug 'altercation/vim-colors-solarized'
-" molokai
-" 主题 molokai
-Plug 'tomasr/molokai'
-Plug 'chriskempson/vim-tomorrow-theme'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " nav
 " nerdtree nerdtreetabs
 Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
@@ -216,11 +214,7 @@ endif
 if count(g:bundle_groups, 'ruby')
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
-    " dir / dar
     Plug 'nelstrom/vim-textobj-rubyblock'
-
-    " 有bug, 和当前有冲突, 尚未解决, 不要打开 => TODO: solve this problem
-    " Plug 'tpope/vim-endwise'
 endif
 
 if count(g:bundle_groups, 'javascript')

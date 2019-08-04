@@ -60,8 +60,9 @@ filetype plugin on
 " 启动自动补全
 filetype plugin indent on
 
-" 文件修改之后自动载入
 set autoread
+set autowrite
+
 " 启动的时候不显示那个援助乌干达儿童的提示
 set shortmess=atI
 
@@ -76,26 +77,12 @@ set nobackup
 set noswapfile
 
 
-" TODO: remove this, use gundo
-" create undo file
-" if has('persistent_undo')
-  " " How many undos
-  " set undolevels=1000
-  " " number of lines to save for undo
-  " set undoreload=10000
-  " " So is persistent undo ...
-  " "set undofile
-  " set noundofile
-  " " set undodir=/tmp/vimundo/
-" endif
-
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
 " 突出显示当前列
 set cursorcolumn
 " 突出显示当前行
 set cursorline
-
 
 " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
 " 好处：误删什么的，如果以前屏幕打开，可以找回
@@ -458,7 +445,6 @@ nnoremap ]b :bnext<cr>
 noremap <left> :bp<CR>
 noremap <right> :bn<CR>
 
-
 " tab 操作
 " http://vim.wikia.com/wiki/Alternative_tab_navigation
 " http://stackoverflow.com/questions/2005214/switching-to-a-particular-tab-in-vim
@@ -656,14 +642,7 @@ if has("gui_running")
 endif
 
 
-
-" theme主题
-set background=light
-set t_Co=256
-
-"colorscheme solarized
-"colorscheme molokai
-colorscheme Tomorrow-Night
+colorscheme dracula
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -684,3 +663,5 @@ highlight SpellLocal term=underline cterm=underline
 nmap <F8> <leader>p
 nnoremap 1 :b1<CR>
 nnoremap 2 :b2<CR>
+
+let g:vimrubocop_config = "$(HOME)/.rubocop.yml"
