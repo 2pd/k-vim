@@ -276,7 +276,8 @@ set completeopt=longest,menu
 " 增强模式中的命令行自动完成操作
 set wildmenu
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
+" set wildignore=*.o,*~,*.pyc,*.class
+set wildignore=*.o,*.pyc,*.class
 
 " 离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -566,10 +567,6 @@ autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
 autocmd BufRead,BufNewFile *.part set filetype=html
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
 
-" disable showmatch when use > in php
-au BufWinEnter *.php set mps-=<:>
-
-
 
 " 保存python文件时删除多余空格
 fun! <SID>StripTrailingWhitespaces()
@@ -578,7 +575,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,java,go,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 
 " 定义函数AutoSetFileHead，自动插入文件头
@@ -642,7 +639,10 @@ if has("gui_running")
 endif
 
 
-colorscheme dracula
+" colorscheme dracula
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='soft'
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致

@@ -16,8 +16,8 @@ filetype off " required! turn off
 
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
-    " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['javascript', 'markdown', 'tmux', 'beta', 'php', 'ruby']
+    " let g:bundle_groups=['python', 'javascript', 'golang', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
+    let g:bundle_groups=['markdown', 'tmux', 'beta', 'ruby', 'javascript', 'html']
 endif
 
 " ----------------------------------------------------------------------------
@@ -45,7 +45,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 代码自动补全
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
+Plug 'zxqfl/tabnine-vim'
+
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -140,20 +142,17 @@ Plug 'vim-airline/vim-airline-themes'
 " 括号显示增强
 Plug 'kien/rainbow_parentheses.vim'
 
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 " nav
-" nerdtree nerdtreetabs
 Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
-" ctrlspace
 Plug 'vim-ctrlspace/vim-ctrlspace'
-" tagbar
 Plug 'majutsushi/tagbar'
-
 Plug 'junegunn/vim-easy-align'
 Plug 'mileszs/ack.vim'
 
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 
 " text object
 " 支持自定义文本对象
@@ -203,14 +202,6 @@ if count(g:bundle_groups, 'python')
     let g:vim_isort_map = '<C-i>'
 endif
 
-if count(g:bundle_groups, 'php')
-    " piv
-    " shift-v可以查看函数手册 / leader-pd生成注释
-    Plug 'spf13/PIV'
-    Plug 'stephpy/vim-php-cs-fixer'
-
-endif
-
 if count(g:bundle_groups, 'ruby')
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
@@ -219,23 +210,8 @@ endif
 
 if count(g:bundle_groups, 'javascript')
     " javascript
-    " 注意: syntax这个插件要放前面
-    Plug 'othree/yajs.vim' | Plug 'pangloss/vim-javascript'
-    " Plug 'jelera/vim-javascript-syntax' | Plug 'pangloss/vim-javascript'
-
-    " TODO: jquery? for, remove or keep
-    Plug 'othree/javascript-libraries-syntax.vim'
-    let g:used_javascript_libs = 'jquery,underscore,backbone'
-
-    " for javascript 自动补全, 配合YCM, 需要安装全局环境的（非nvm中) node.js&npm
-    " 安装完成后还需要在 bundle/tern_for_vim 下执行 npm install 安装依赖 `cd ~/.vim/bundle/tern_for_vim && npm install`
-    " see https://github.com/marijnh/tern_for_vim
-    " Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-endif
-
-
-if count(g:bundle_groups, 'coffeescript')
-    Plug 'kchmck/vim-coffee-script'
+    " Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
 endif
 
 " if count(g:bundle_groups, 'shell')
@@ -265,7 +241,7 @@ endif
 
 if count(g:bundle_groups, 'html')
     " ###### emmet HTML complete #########
-    " Plug 'mattn/emmet-vim'
+    Plug 'mattn/emmet-vim'
 endif
 
 " this is just for beta version
@@ -499,9 +475,6 @@ endif
 " delimitMate {{{
     " for python docstring ",优化输入
     au FileType python let b:delimitMate_nesting_quotes = ['"']
-    au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
-    " 关闭某些类型文件的自动补全
-    "au FileType mail let b:delimitMate_autoclose = 0
 " }}}
 
 
@@ -801,11 +774,6 @@ endif
 " pythonsyntax {{{
     let python_highlight_all = 1
 " }}}
-
-" piv {{{
-    let g:DisableAutoPHPFolding = 1
-" }}}
-
 
 " vimgo {{{
     let g:go_highlight_functions = 1
